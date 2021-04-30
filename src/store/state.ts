@@ -16,7 +16,7 @@ const state: StateInterface = {
 
     {
       name: 'Counter',
-      link: '/Counter',
+      link: '/counter',
       icon: 'info',
     },
   ],

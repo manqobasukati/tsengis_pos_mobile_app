@@ -6,6 +6,13 @@ Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
+    path: '/inventory/add-item',
+    name: 'AddInventoryItem',
+    component: () => {
+      return import('@/store/inventory/views/AddInventoryItem.vue');
+    },
+  },
+  {
     path: '/',
     name: 'Layout',
     children: [

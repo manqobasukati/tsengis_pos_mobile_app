@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-flex tw-flex-col">
+  <div class="tw-flex tw-flex-col tw-p-2">
     <div class="tw-flex-grow tw-h-64 tw-justify-center">
       <div class="tw-text-3xl tw-text-yellow-500 tw-font-bold">
         Counter items
@@ -17,18 +17,21 @@
         </i>
       </div>
     </div>
-    <div class="tw-flex tw-justify-around  ">
+
+    <div class="tw-flex tw-flex-row tw-mt-2  tw-w-full tw-space-x-1 ">
       <button
         @click="AddItem()"
-        class="tw-border-2 tw-p-2 tw-border-yellow-500 tw-text-yellow-500"
+        class="tw-border-2 tw-border-yellow-500 tw-w-1/2 tw-p-3 tw-text-yellow-500 focus:tw-outline-none"
       >
-        Add Item
-      </button>
-      <button class="tw-bg-yellow-500 tw-p-2 tw-text-white tw-font-semibold">
+        Add item</button
+      ><button
+        class="tw-bg-yellow-500 tw-w-1/2 tw-text-white focus:tw-outline-none "
+      >
         Checkout
       </button>
     </div>
     <add-counter-item
+      @show_dialog="AddItem"
       @barcode_value="ReceiveBarcodeValue"
       v-if="AddItemDialogActive"
     />
@@ -59,7 +62,6 @@ export default Vue.extend({
   },
   data() {
     return {
-      
       AddItemDialogActive: false,
     };
   },

@@ -1,10 +1,12 @@
 <template>
-  <div class="tw-flex" :class="backgroundColor">
-    <i @click="clickMenu()" :class="[iconFamily, textColor]">menu</i>
-    <div :class="[textColor, 'tw-text-lg']">
+  <div
+   
+    :class="[backgroundColor,'tw-flex tw-items-center tw-shadow-md tw-p-4 ']"
+  >
+    <i @click="clickMenu()" :class="[iconFamily, textColor,'tw-text-3xl','tw-m-2']">menu</i>
+    <div :class="[textColor, 'tw-text-2xl']">
       {{ title }}
     </div>
-    
   </div>
 </template>
 
@@ -20,7 +22,7 @@ import { StateInterface } from '@/store/state';
 export default Vue.extend({
   name: 'TopBar',
   props: ['backgroundColor', 'textColor', 'title'],
-  
+
   data() {
     return {
       iconFamily: 'material-icons',
@@ -39,6 +41,5 @@ export default Vue.extend({
       this.activeSideMenuOption = option;
     },
   },
- 
 });
 </script>
