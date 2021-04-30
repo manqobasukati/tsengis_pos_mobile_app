@@ -1,11 +1,5 @@
 <template>
   <div class="tw-flex tw-flex-col">
-    <top-bar
-      class="tw-h-10"
-      :backgroundColor="'tw-bg-yellow-500'"
-      :textColor="'tw-text-white'"
-      :title="'Counter'"
-    />
     <div class="tw-flex-grow tw-h-64 tw-justify-center">
       <div class="tw-text-3xl tw-text-yellow-500 tw-font-bold">
         Counter items
@@ -58,7 +52,6 @@ import myDb from '@/core/PouchDBHandler';
 export default Vue.extend({
   name: 'Counter',
   components: {
-    TopBar,
     AddCounterItem,
   },
   mounted() {
@@ -66,14 +59,15 @@ export default Vue.extend({
   },
   data() {
     return {
+      
       AddItemDialogActive: false,
     };
   },
   methods: {
     ReceiveBarcodeValue(data: any) {
       const action = `${MODULES.COUNTER}/${COUNTER_ACTIONS.ADDITEM}`;
-      myDb.getStoreItem(data).then((val:any) => {
-        console.log('Store Item',val)
+      myDb.getStoreItem(data).then((val: any) => {
+        console.log('Store Item', val);
         this.$store.dispatch(action, val);
         this.AddItemDialogActive = !this.AddItemDialogActive;
       });

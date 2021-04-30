@@ -6,19 +6,28 @@ Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/inventory',
-    name:'Inventory',
-    component: ()=>{
-      return import('@/store/inventory/views/Inventory.vue')
-    }
-  },
+    path: '/',
+    name: 'Layout',
+    children: [
+      {
+        path: '/inventory',
+        name: 'Inventory',
+        component: () => {
+          return import('@/store/inventory/views/Inventory.vue');
+        },
+      },
 
-  {
-    path: '/counter',
-    name:'Counter',
-    component: ()=>{
-      return import('@/store/Counter/views/Counter.vue')
-    }
+      {
+        path: '/counter',
+        name: 'Counter',
+        component: () => {
+          return import('@/store/Counter/views/Counter.vue');
+        },
+      },
+    ],
+    component: () => {
+      return import('@/components/Main/Layout.vue');
+    },
   },
 
   {
