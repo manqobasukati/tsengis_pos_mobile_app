@@ -25,6 +25,7 @@
       >
         Add item</button
       ><button
+        @click="navigateTo('/counter/checkout')"
         class="tw-bg-yellow-500 tw-w-1/2 tw-text-white focus:tw-outline-none "
       >
         Checkout
@@ -76,6 +77,9 @@ export default Vue.extend({
     },
     AddItem() {
       this.AddItemDialogActive = !this.AddItemDialogActive;
+    },
+    navigateTo(path: string) {
+      this.$router.push({ path: path });
     },
   },
   computed: {

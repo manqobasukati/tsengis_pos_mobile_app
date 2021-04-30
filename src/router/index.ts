@@ -13,6 +13,13 @@ const routes: Array<RouteConfig> = [
     },
   },
   {
+    path: '/counter/checkout',
+    name: 'Checkout',
+    component: () => {
+      return import('@/store/counter/views/Checkout.vue');
+    },
+  },
+  {
     path: '/',
     name: 'Layout',
     children: [
