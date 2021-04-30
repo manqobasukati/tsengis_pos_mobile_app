@@ -5,6 +5,13 @@ const state: StateInterface = {
   active_module: null as null | ModuleDefinition,
   modules: [
 {
+    name:'inventory',
+    link:'/inventory',
+    icon:'info'
+},
+
+
+{
     name:'Counter',
     link:'/Counter',
     icon:'info'

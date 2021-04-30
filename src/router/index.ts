@@ -6,6 +6,14 @@ Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
+    path: '/inventory',
+    name:'Inventory',
+    component: ()=>{
+      return import('@/store/inventory/views/Inventory.vue')
+    }
+  },
+
+  {
     path: '/counter',
     name:'Counter',
     component: ()=>{
