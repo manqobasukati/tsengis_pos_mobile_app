@@ -1,7 +1,7 @@
 <template>
   <div class="tw-flex" :class="backgroundColor">
     <i @click="clickMenu()" :class="[iconFamily, textColor]">menu</i>
-    <div :class="[textColor, 'tw-text-lg']">
+    <div  :class="[textColor, 'tw-text-lg']">
       {{ title }}
     </div>
     <side-menu

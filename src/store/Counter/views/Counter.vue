@@ -1,7 +1,7 @@
 <template>
   <div class="tw-flex tw-flex-col">
     <top-bar
-      class="tw-h-8"
+      class="tw-h-10"
       :backgroundColor="'tw-bg-yellow-500'"
       :textColor="'tw-text-white'"
       :title="'Counter'"

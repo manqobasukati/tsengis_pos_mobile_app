@@ -5,7 +5,7 @@
         <i class="material-icons tw-text-6xl tw-text-white">domain</i>
         <div class="tw-text-white ">Store name here</div>
       </div>
-      <div class="tw-pt-8">
+      <div class="tw-pt-8 tw-text-white">
         <div
           v-for="(option, key) in options"
           :key="key"
