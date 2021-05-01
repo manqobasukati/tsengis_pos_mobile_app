@@ -58,6 +58,7 @@
         type="text"
       />
       <button
+        @click="addItem()"
         class="tw-w-full tw-bg-yellow-400 tw-p-2 tw-text-2xl tw-text-white"
       >
         submit
@@ -77,6 +78,7 @@ import Vue from 'vue';
 
 import myDb from '@/core/PouchDBHandler';
 import AddCounterItem from '@/store/Counter/views/AddCounterItem.vue';
+import { IStoreItem } from '@/core/PouchDBHandler/StoreItem.model';
 export default Vue.extend({
   name: 'AddInventoryItem',
   components: {
@@ -97,6 +99,17 @@ export default Vue.extend({
     };
   },
   methods: {
+    addItem() {
+      const inventory_item: IStoreItem = {
+        ...this.product_details,
+        date_added: (new Date()).toString(),
+      };
+      myDb.addStoreItem(inventory_item).then((val) => {
+        console.log('item added');
+      }).catch((e)=>{
+        console.log('Error here',e);
+      });
+    },
     ReceiveBarcodeValue(data: any) {
       this.product_details._id = data;
       this.showDialog();

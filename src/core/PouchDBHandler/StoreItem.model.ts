@@ -1,5 +1,5 @@
 export interface IStoreItem {
-    id:string,
+    _id:string,
     name:string,
     date_added:string,
     purchase_prize:number,
