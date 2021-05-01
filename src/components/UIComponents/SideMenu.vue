@@ -3,9 +3,9 @@
     <div class="tw-w-2/3 tw-bg-yellow-500 tw-h-full tw-flex-col">
       <div class="tw-pt-8">
         <i class="material-icons tw-text-6xl tw-text-white">domain</i>
-        <div class="tw-text-white ">Store name here</div>
+        <div class="tw-text-white tw-text-xl">Store name here</div>
       </div>
-      <div class="tw-pt-8 tw-text-white">
+      <div class="tw-pt-8 tw-text-white tw-text-xl tw-font-semibold">
         <div
           v-for="(option, key) in options"
           :key="key"
