@@ -16,15 +16,19 @@
       <input
         class="tw-w-full tw-border-2 tw-border-yellow-400 tw-p-4  focus:tw-outline-none "
         placeholder="Item name"
+        v-model="product_details.name"
         type="text"
       />
       <div class="tw-relative tw-bg-red-900 tw-w-full ">
         <input
           class="tw-w-full tw-border-2 tw-border-yellow-400 tw-p-4  focus:tw-outline-none "
           placeholder="Item number"
+          v-model="product_details._id"
           type="text"
         />
-        <i class="tw-absolute tw-p-4 tw-inset-y-0 tw-right-0 material-icons "
+        <i
+          @click="showDialog()"
+          class="tw-absolute tw-p-4 tw-inset-y-0 tw-right-0 material-icons "
           >photo_camera</i
         >
       </div>
@@ -32,21 +36,25 @@
       <input
         class="tw-w-full tw-border-2 tw-border-yellow-400 tw-p-4  focus:tw-outline-none "
         placeholder="Item category"
+        v-model="product_details.category"
         type="text"
       />
       <input
         class="tw-w-full tw-border-2 tw-border-yellow-400 tw-p-4  focus:tw-outline-none "
-        placeholder="item quality"
+        placeholder="item quantity"
+        v-model="product_details.quantity"
         type="text"
       />
       <input
         class="tw-w-full tw-border-2 tw-border-yellow-400 tw-p-4  focus:tw-outline-none "
         placeholder="Purchase prize"
         type="text"
+        v-model="product_details.purchase_prize"
       />
       <input
         class="tw-w-full tw-border-2 tw-border-yellow-400 tw-p-4  focus:tw-outline-none "
-        placeholder="Sell prize"
+        placeholder="Resell prize"
+        v-model="product_details.resell_prize"
         type="text"
       />
       <button
@@ -55,14 +63,47 @@
         submit
       </button>
     </div>
+
+    <add-counter-item
+      @show_dialog="showDialog"
+      @barcode_value="ReceiveBarcodeValue"
+      v-if="AddItemDialogActive"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+
+import myDb from '@/core/PouchDBHandler';
+import AddCounterItem from '@/store/Counter/views/AddCounterItem.vue';
 export default Vue.extend({
   name: 'AddInventoryItem',
+  components: {
+    AddCounterItem,
+  },
+  data() {
+    return {
+      AddItemDialogActive: false,
+      product_details: {
+        _id: '',
+        name: '',
+        date_added: new Date(),
+        purchase_prize: 0,
+        resell_prize: 0,
+        quantity: 0,
+        category: '',
+      },
+    };
+  },
   methods: {
+    ReceiveBarcodeValue(data: any) {
+      this.product_details._id = data;
+      this.showDialog();
+    },
+    showDialog() {
+      this.AddItemDialogActive = !this.AddItemDialogActive;
+    },
     navigateTo(path: string) {
       this.$router.push({ path: path });
     },
