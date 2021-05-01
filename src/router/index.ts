@@ -16,7 +16,7 @@ const routes: Array<RouteConfig> = [
     path: '/counter/checkout',
     name: 'Checkout',
     component: () => {
-      return import('@/store/counter/views/Checkout.vue');
+      return import('@/store/Counter/views/Checkout.vue');
     },
   },
   {
