@@ -78,7 +78,7 @@ import Vue from 'vue';
 
 import myDb from '@/core/PouchDBHandler';
 import AddCounterItem from '@/store/Counter/views/AddCounterItem.vue';
-import { IStoreItem } from '@/core/PouchDBHandler/StoreItem.model';
+import { StoreItem } from '@/core/PouchDBHandler/StoreItem.model';
 export default Vue.extend({
   name: 'AddInventoryItem',
   components: {
@@ -100,7 +100,7 @@ export default Vue.extend({
   },
   methods: {
     addItem() {
-      const inventory_item: IStoreItem = {
+      const inventory_item: StoreItem = {
         ...this.product_details,
         date_added: (new Date()).toString(),
       };

@@ -1,4 +1,4 @@
-export interface IStoreItem {
+export interface StoreItem {
     _id:string,
     name:string,
     date_added:string,
