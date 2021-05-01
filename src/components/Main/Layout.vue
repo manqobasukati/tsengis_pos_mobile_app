@@ -21,24 +21,24 @@
 </template>
 
 <script lang="ts">
-import { MODULES } from '@/store';
-import { STATE_ACTIONS } from '@/store/actions';
-import { ModuleDefinition } from '@/types/module.model';
-import Vue from 'vue';
-import { component } from 'vue/types/umd';
-import SideMenu from '../UIComponents/SideMenu.vue';
-import TopBar from '../UIComponents/TopBar.vue';
+import { MODULES } from "@/store";
+import { STATE_ACTIONS } from "@/store/actions";
+import { ModuleDefinition } from "@/types/module.model";
+import Vue from "vue";
+import { component } from "vue/types/umd";
+import SideMenu from "../UIComponents/SideMenu.vue";
+import TopBar from "../UIComponents/TopBar.vue";
 export default Vue.extend({
-  name: 'Layout',
+  name: "Layout",
   components: {
     TopBar,
-    SideMenu,
+    SideMenu
   },
   data() {
     return {
-      iconFamily: 'material-icons',
-      activeSideMenuOption: { name: 'Counter', icon: 'keyboard' },
-      showSideMenu: false,
+      iconFamily: "material-icons",
+      activeSideMenuOption: { name: "Counter", icon: "keyboard" },
+      showSideMenu: false
     };
   },
   methods: {
@@ -50,16 +50,15 @@ export default Vue.extend({
         this.$router.push({ path: active_module.link });
         this.showSideMenu = !this.showSideMenu;
       });
-    },
+    }
   },
   computed: {
     modules() {
       return this.$store.state.modules;
     },
     active_module() {
-      
       return this.$store.state.active_module;
-    },
-  },
+    }
+  }
 });
 </script>

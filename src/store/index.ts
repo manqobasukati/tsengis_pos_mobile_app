@@ -1,34 +1,31 @@
-import Vuex from 'vuex';
-import Vue from 'vue';
+import Vuex from "vuex";
+import Vue from "vue";
 
-import mutations from './mutations';
-import actions from './actions';
-import getters from './getters';
-import state, { StateInterface } from './state';
-import inventory from './inventory'
+import mutations from "./mutations";
+import actions from "./actions";
+import getters from "./getters";
+import state, { StateInterface } from "./state";
+import inventory from "./inventory";
 
-
-import Counter from './Counter';
+import Counter from "./Counter";
 
 export enum MODULES {
- INVENTORY =  'inventory',
+  INVENTORY = "inventory",
 
-
-  COUNTER = 'Counter',
+  COUNTER = "Counter"
 }
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store<StateInterface>({
   modules: {
-inventory,
+    inventory,
 
-
-    Counter,
+    Counter
   },
   state,
   actions,
-  mutations,
+  mutations
 });
 
 export default store;

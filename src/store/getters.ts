@@ -1,13 +1,8 @@
-import { GetterTree } from 'vuex';
- import { StateInterface } from './state';
+import { GetterTree } from "vuex";
+import { StateInterface } from "./state";
 
+export enum GETTERS {}
 
- export enum GETTERS {
-  
- }
+const getters: GetterTree<StateInterface, StateInterface> = {};
 
- const getters: GetterTree<StateInterface, StateInterface> = {
-   
- };
-
- export default getters;
+export default getters;

@@ -8,19 +8,19 @@ export interface CounterInterface {
 const state: CounterInterface = {
   counterItems: [
     {
-      name: 'Mr Bread',
+      name: "Mr Bread",
       prize: 11.5,
-      quantity: 1,
+      quantity: 1
     },
     {
-      name: 'Yoghurt',
+      name: "Yoghurt",
       prize: 15.5,
-      quantity: 3,
-    },
+      quantity: 3
+    }
   ],
   totalOfCounterItems: null as null | any,
   checkoutCounterItems: null as null | any,
-  addItem: null as null | any,
+  addItem: null as null | any
 };
 
 export default state;

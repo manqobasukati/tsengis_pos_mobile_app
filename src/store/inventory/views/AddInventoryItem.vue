@@ -74,41 +74,44 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 
-import myDb from '@/core/PouchDBHandler';
-import AddCounterItem from '@/store/Counter/views/AddCounterItem.vue';
-import { StoreItem } from '@/core/PouchDBHandler/StoreItem.model';
+import myDb from "@/core/PouchDBHandler";
+import AddCounterItem from "@/store/Counter/views/AddCounterItem.vue";
+import { StoreItem } from "@/core/PouchDBHandler/StoreItem.model";
 export default Vue.extend({
-  name: 'AddInventoryItem',
+  name: "AddInventoryItem",
   components: {
-    AddCounterItem,
+    AddCounterItem
   },
   data() {
     return {
       AddItemDialogActive: false,
       product_details: {
-        _id: '',
-        name: '',
+        _id: "",
+        name: "",
         date_added: new Date(),
         purchase_prize: 0,
         resell_prize: 0,
         quantity: 0,
-        category: '',
-      },
+        category: ""
+      }
     };
   },
   methods: {
     addItem() {
       const inventory_item: StoreItem = {
         ...this.product_details,
-        date_added: (new Date()).toString(),
+        date_added: new Date().toString()
       };
-      myDb.addStoreItem(inventory_item).then((val) => {
-        console.log('item added');
-      }).catch((e)=>{
-        console.log('Error here',e);
-      });
+      myDb
+        .addStoreItem(inventory_item)
+        .then(val => {
+          console.log("item added");
+        })
+        .catch(e => {
+          console.log("Error here", e);
+        });
     },
     ReceiveBarcodeValue(data: any) {
       this.product_details._id = data;
@@ -119,7 +122,7 @@ export default Vue.extend({
     },
     navigateTo(path: string) {
       this.$router.push({ path: path });
-    },
-  },
+    }
+  }
 });
 </script>

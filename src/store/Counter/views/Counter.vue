@@ -40,37 +40,37 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { mapState } from 'vuex';
+import Vue from "vue";
+import { mapState } from "vuex";
 
-import { MODULES } from '@/store';
+import { MODULES } from "@/store";
 
-import { CounterInterface } from '@/store/Counter/state';
+import { CounterInterface } from "@/store/Counter/state";
 
-import actions, { COUNTER_ACTIONS } from '@/store/Counter/actions';
-import TopBar from '@/components/UIComponents/TopBar.vue';
-import AddCounterItem from './AddCounterItem.vue';
+import actions, { COUNTER_ACTIONS } from "@/store/Counter/actions";
+import TopBar from "@/components/UIComponents/TopBar.vue";
+import AddCounterItem from "./AddCounterItem.vue";
 
-import myDb from '@/core/PouchDBHandler';
+import myDb from "@/core/PouchDBHandler";
 
 export default Vue.extend({
-  name: 'Counter',
+  name: "Counter",
   components: {
-    AddCounterItem,
+    AddCounterItem
   },
   mounted() {
     console.log(myDb);
   },
   data() {
     return {
-      AddItemDialogActive: false,
+      AddItemDialogActive: false
     };
   },
   methods: {
     ReceiveBarcodeValue(data: any) {
       const action = `${MODULES.COUNTER}/${COUNTER_ACTIONS.ADDITEM}`;
       myDb.getStoreItem(data).then((val: any) => {
-        console.log('Store Item', val);
+        console.log("Store Item", val);
         this.$store.dispatch(action, val);
         this.AddItemDialogActive = !this.AddItemDialogActive;
       });
@@ -80,7 +80,7 @@ export default Vue.extend({
     },
     navigateTo(path: string) {
       this.$router.push({ path: path });
-    },
+    }
   },
   computed: {
     ...mapState(MODULES.COUNTER, {
@@ -95,8 +95,8 @@ export default Vue.extend({
       },
       addItem(state: CounterInterface) {
         return state.addItem;
-      },
-    }),
-  },
+      }
+    })
+  }
 });
 </script>

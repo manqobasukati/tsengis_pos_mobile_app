@@ -1,5 +1,5 @@
 export interface ModuleDefinition {
-    name:string,
-    link:string,
-    icon:string
+  name: string;
+  link: string;
+  icon: string;
 }

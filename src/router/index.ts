@@ -1,71 +1,71 @@
-import Vue from 'vue';
-import VueRouter, { RouteConfig } from 'vue-router';
-import Home from '../views/Home.vue';
+import Vue from "vue";
+import VueRouter, { RouteConfig } from "vue-router";
+import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/inventory/add-item',
-    name: 'AddInventoryItem',
+    path: "/inventory/add-item",
+    name: "AddInventoryItem",
     component: () => {
-      return import('@/store/inventory/views/AddInventoryItem.vue');
-    },
+      return import("@/store/inventory/views/AddInventoryItem.vue");
+    }
   },
   {
-    path: '/counter/checkout',
-    name: 'Checkout',
+    path: "/counter/checkout",
+    name: "Checkout",
     component: () => {
-      return import('@/store/Counter/views/Checkout.vue');
-    },
+      return import("@/store/Counter/views/Checkout.vue");
+    }
   },
   {
-    path: '/',
-    name: 'Layout',
+    path: "/",
+    name: "Layout",
     children: [
       {
-        path: '/inventory',
-        name: 'Inventory',
+        path: "/inventory",
+        name: "Inventory",
         component: () => {
-          return import('@/store/inventory/views/Inventory.vue');
-        },
+          return import("@/store/inventory/views/Inventory.vue");
+        }
       },
 
       {
-        path: '/counter',
-        name: 'Counter',
+        path: "/counter",
+        name: "Counter",
         component: () => {
-          return import('@/store/Counter/views/Counter.vue');
-        },
-      },
+          return import("@/store/Counter/views/Counter.vue");
+        }
+      }
     ],
     component: () => {
-      return import('@/components/Main/Layout.vue');
-    },
+      return import("@/components/Main/Layout.vue");
+    }
   },
 
   {
-    path: '/',
-    name: 'Home',
+    path: "/",
+    name: "Home",
     component: () => {
-      return import('@/components/Home/Home.vue');
-    },
+      return import("@/components/Home/Home.vue");
+    }
   },
   {
-    path: '/about',
-    name: 'About',
+    path: "/about",
+    name: "About",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/About.vue'),
-  },
+      import(/* webpackChunkName: "about" */ "../views/About.vue")
+  }
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes,
+  routes
 });
 
 export default router;

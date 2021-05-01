@@ -1,6 +1,6 @@
 module.exports = {
   theme: {
-    extend: {},
+    extend: {}
   },
   variants: {},
   plugins: [],
@@ -8,16 +8,16 @@ module.exports = {
     // removeDeprecatedGapUtilities: true,
     // purgeLayersByDefault: true,
   },
-  prefix: 'tw-',
+  prefix: "tw-",
   purge: {
-    enabled: process.env.NODE_ENV === 'production',
-    content: ['./public/**/*.html', './src/**/*.vue'],
+    enabled: process.env.NODE_ENV === "production",
+    content: ["./public/**/*.html", "./src/**/*.vue"],
     options: {
       whitelistPatterns: [
         /-(leave|enter|appear)(|-(to|from|active))$/,
         /^(?!(|.*?:)cursor-move).+-move$/,
-        /^router-link(|-exact)-active$/,
-      ],
-    },
-  },
+        /^router-link(|-exact)-active$/
+      ]
+    }
+  }
 };

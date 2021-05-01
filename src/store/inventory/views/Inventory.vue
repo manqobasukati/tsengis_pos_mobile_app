@@ -19,30 +19,38 @@
     </div>
 
     <div class="tw-flex tw-flex-row tw-mt-2  tw-w-full tw-space-x-1 ">
-      <button @click="navigateTo('/inventory/add-item')" class="tw-border-2 tw-border-yellow-500 tw-w-1/2 tw-p-3 tw-text-yellow-500 focus:tw-outline-none">Add item</button
-      ><button class="tw-bg-yellow-500 tw-w-1/2 tw-text-white focus:tw-outline-none ">add catergory</button>
+      <button
+        @click="navigateTo('/inventory/add-item')"
+        class="tw-border-2 tw-border-yellow-500 tw-w-1/2 tw-p-3 tw-text-yellow-500 focus:tw-outline-none"
+      >
+        Add item</button
+      ><button
+        class="tw-bg-yellow-500 tw-w-1/2 tw-text-white focus:tw-outline-none "
+      >
+        add catergory
+      </button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { mapState } from 'vuex';
+import Vue from "vue";
+import { mapState } from "vuex";
 
-import { MODULES } from '@/store';
+import { MODULES } from "@/store";
 
-import { InventoryInterface } from '@/store/inventory/state';
+import { InventoryInterface } from "@/store/inventory/state";
 
-import actions from '@/store/inventory/actions';
-import TopBar from '@/components/UIComponents/TopBar.vue';
+import actions from "@/store/inventory/actions";
+import TopBar from "@/components/UIComponents/TopBar.vue";
 
 export default Vue.extend({
-  name: 'Inventory',
-  methods:{
-    navigateTo(path:string){
-      this.$router.push({path:path})
+  name: "Inventory",
+  methods: {
+    navigateTo(path: string) {
+      this.$router.push({ path: path });
     }
-  }, 
+  },
   computed: {
     ...mapState(MODULES.INVENTORY, {
       store_name(state: InventoryInterface) {
@@ -50,8 +58,8 @@ export default Vue.extend({
       },
       search_text(state: InventoryInterface) {
         return state.search_text;
-      },
-    }),
-  },
+      }
+    })
+  }
 });
 </script>
