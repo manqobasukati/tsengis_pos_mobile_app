@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="[backgroundColor, 'tw-flex tw-items-center tw-shadow-md tw-p-4 ']"
+    :class="[backgroundColor, 'tw-flex tw-items-center tw-shadow-md tw-p-4 tw-h-16']"
   >
     <i
       @click="clickMenu()"
