@@ -2,5 +2,10 @@ module.exports = {
   devServer: {
     https: true,
   },
-  pwa: { name: 'TsengisaPOS', themeColor: '#E1D15B',display:'standalone' },
+  pwa: {
+    name: 'TsengisaPOS',
+    themeColor: '#000000',
+    display: 'standalone',
+    background_color: '#FFFFFF',
+  },
 };
