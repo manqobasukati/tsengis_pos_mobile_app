@@ -1,6 +1,9 @@
 <template>
   <div
-    :class="[backgroundColor, 'tw-flex tw-items-center tw-shadow-md tw-p-4 tw-h-16']"
+    :class="[
+      backgroundColor,
+      'tw-flex tw-items-center tw-shadow-md tw-p-4 tw-h-16',
+    ]"
   >
     <i
       @click="clickMenu()"
@@ -14,23 +17,19 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 
-import { AppEmisions } from "@/core/emmisions";
-import SideMenu from "./SideMenu.vue";
-import { mapState } from "vuex";
-import { MODULES } from "@/store";
-import { StateInterface } from "@/store/state";
+import { AppEmisions } from '@/core/emmisions';
 
 export default Vue.extend({
-  name: "TopBar",
-  props: ["backgroundColor", "textColor", "title"],
+  name: 'TopBar',
+  props: ['backgroundColor', 'textColor', 'title'],
 
   data() {
     return {
-      iconFamily: "material-icons",
-      activeSideMenuOption: { name: "Counter", icon: "keyboard" },
-      showSideMenu: false
+      iconFamily: 'material-icons',
+      activeSideMenuOption: { name: 'Counter', icon: 'keyboard' },
+      showSideMenu: false,
     };
   },
   methods: {
@@ -40,9 +39,9 @@ export default Vue.extend({
     },
 
     setActiveOptionSidebar(option: any) {
-      console.log("This option", option);
+      console.log('This option', option);
       this.activeSideMenuOption = option;
-    }
-  }
+    },
+  },
 });
 </script>
