@@ -34,32 +34,32 @@
       </div>
 
       <input
-        class="tw-w-full tw-border-2 tw-border-yellow-400 tw-p-4  focus:tw-outline-none "
+        class="tw-w-full tw-border-2 tw-border-black tw-p-4  focus:tw-outline-none "
         placeholder="Item category"
         v-model="product_details.category"
         type="text"
       />
       <input
-        class="tw-w-full tw-border-2 tw-border-yellow-400 tw-p-4  focus:tw-outline-none "
+        class="tw-w-full tw-border-2 tw-border-black tw-p-4  focus:tw-outline-none "
         placeholder="item quantity"
         v-model="product_details.quantity"
         type="text"
       />
       <input
-        class="tw-w-full tw-border-2 tw-border-yellow-400 tw-p-4  focus:tw-outline-none "
+        class="tw-w-full tw-border-2 tw-border-black tw-p-4  focus:tw-outline-none "
         placeholder="Purchase prize"
         type="text"
         v-model="product_details.purchase_prize"
       />
       <input
-        class="tw-w-full tw-border-2 tw-border-yellow-400 tw-p-4  focus:tw-outline-none "
+        class="tw-w-full tw-border-2 tw-border-black tw-p-4  focus:tw-outline-none "
         placeholder="Resell prize"
         v-model="product_details.resell_prize"
         type="text"
       />
       <button
         @click="addItem()"
-        class="tw-w-full tw-bg-yellow-400 tw-p-2 tw-text-2xl tw-text-white"
+        class="tw-w-full tw-bg-black 0 tw-p-2 tw-text-2xl tw-text-white"
       >
         submit
       </button>
