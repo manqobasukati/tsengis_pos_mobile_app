@@ -1,6 +1,6 @@
 <template>
-  <div class="tw-flex tw-flex-col tw-p-2">
-    <div class="tw-flex-grow tw-justify-center">
+  <div class="tw-flex tw-flex-col tw-p-2  tw-items-center">
+    <div class="tw-flex-grow tw-w-full md:tw-w-1/2 ">
       <div class="tw-text-3xl tw-text-black tw-font-bold">
         Counter items
       </div>
@@ -8,7 +8,7 @@
       <div
         v-for="(item, key) in counterItems"
         :key="key"
-        class="tw-flex  tw-shadow-md tw-my-2"
+        class="tw-flex  tw-shadow-md tw-my-2 "
       >
         <div class="tw-flex tw-flex-col tw-w-5/6 tw-p-2">
           <div class="tw-flex tw-text-lg  tw-w-full tw-justify-between">
@@ -32,7 +32,9 @@
       </div>
     </div>
 
-    <div class="tw-flex tw-flex-row tw-mt-2  tw-w-full tw-space-x-1 ">
+    <div
+      class="tw-flex tw-flex-row tw-mt-2 tw-w-full md:tw-w-1/2  tw-space-x-1 "
+    >
       <button
         @click="AddItem()"
         class="tw-border-2 tw-border-black tw-w-1/2 tw-p-3  focus:tw-outline-none"
