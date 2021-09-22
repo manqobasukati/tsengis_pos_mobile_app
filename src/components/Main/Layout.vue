@@ -3,7 +3,7 @@
     <top-bar
       class="tw-h-10"
       @click_topbar_menu="showSideMenu = !showSideMenu"
-      :backgroundColor="'tw-bg-yellow-500'"
+      :backgroundColor="'tw-bg-black'"
       :textColor="'tw-text-white'"
       :title="this.active_module.name"
     />

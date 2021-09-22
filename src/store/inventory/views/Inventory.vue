@@ -25,7 +25,7 @@
       >
         Add item</button
       ><button
-        class="tw-bg-yellow-500 tw-w-1/2 tw-text-white focus:tw-outline-none "
+        class="tw-bg-black tw-w-1/2 tw-text-white focus:tw-outline-none "
       >
         add catergory
       </button>

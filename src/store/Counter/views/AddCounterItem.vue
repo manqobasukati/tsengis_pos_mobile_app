@@ -23,13 +23,13 @@
       </div>
       <button
         @click="ReadBarcode()"
-        class="tw-bg-yellow-500 tw-p-2 tw-w-3/4 tw-mt-2 tw-border-none tw-text-white"
+        class="tw-bg-black tw-p-2 tw-w-3/4 tw-mt-2 tw-border-none tw-text-white"
       >
         Read
       </button>
       <button
         @click="ResetBarcodeReader()"
-        class="tw-bg-yellow-500 tw-p-2 tw-w-3/4 tw-mt-2 tw-border-none tw-text-white"
+        class="tw-bg-black tw-p-2 tw-w-3/4 tw-mt-2 tw-border-none tw-text-white"
       >
         Reset
       </button>

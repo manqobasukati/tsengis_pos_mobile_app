@@ -1,7 +1,7 @@
 <template>
   <div class="tw-flex  tw-flex-col ">
     <div
-      class="tw-flex tw-bg-yellow-500 tw-p-4 tw-text-white tw-items-center tw-shadow-md"
+      class="tw-flex tw-bg-black tw-p-4 tw-text-white tw-items-center tw-shadow-md"
     >
       <i
         class="material-icons tw-text-3xl tw-m-2"
