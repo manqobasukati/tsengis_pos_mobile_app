@@ -38,19 +38,19 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { BrowserBarcodeReader, NotFoundException } from "@zxing/library";
-import { AppEmisions } from "@/core/emmisions";
+import Vue from 'vue';
+import { BrowserBarcodeReader, NotFoundException } from '@zxing/library';
+import { AppEmisions } from '@/core/emmisions';
 
 export default Vue.extend({
-  name: "AddCounterItem",
-  props: ["DialogActive"],
+  name: 'AddCounterItem',
+  props: ['DialogActive'],
   data() {
     return {
       reader: null as null | any,
-      deviceId: "",
+      deviceId: '',
       device: null as null | any,
-      barcodeRead: null as null | string
+      barcodeRead: null as null | string,
     };
   },
   methods: {
@@ -59,17 +59,17 @@ export default Vue.extend({
     },
     ResetBarcodeReader() {
       this.reader.reset();
-      this.barcodeRead = "";
+      this.barcodeRead = '';
     },
     ReadBarcode() {
       this.reader
-        .decodeOnceFromVideoDevice(this.deviceId, "video")
+        .decodeOnceFromVideoDevice(this.deviceId, 'video')
         .then((result: any) => {
           this.barcodeRead = result.text;
           this.$emit(AppEmisions.BARCODE_VALUE, this.barcodeRead);
         })
         .catch((err: any) => console.error(err));
-    }
+    },
   },
   mounted() {
     this.reader = new BrowserBarcodeReader(50);
@@ -90,6 +90,10 @@ export default Vue.extend({
       });
 
     this.ReadBarcode();
-  }
+
+    setTimeout(() => {
+      this.device.applyConstraints({ advanced: [{ torch: true }] });
+    }, 1000);
+  },
 });
 </script>
