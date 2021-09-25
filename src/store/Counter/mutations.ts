@@ -23,16 +23,19 @@ const mutations: MutationTree<CounterInterface> = {
   },
   [COUNTER_MUTATIONS.ADDITEM](state: CounterInterface, payload) {
     state.counterItems.push(payload);
+    state.totalOfCounterItems = state.totalOfCounterItems + payload.prize;
   },
   [COUNTER_MUTATIONS.REMOVE_ITEM](
     state: CounterInterface,
     payload: CounterItem
   ) {
-    const itemIndex = (state.counterItems as CounterItem[]).findIndex(val => {
+    const itemIndex = (state.counterItems as CounterItem[]).findIndex((val) => {
       return val._id === payload._id;
     });
 
     state.counterItems.splice(itemIndex, 1);
+
+    state.totalOfCounterItems = state.totalOfCounterItems - payload.prize;
   },
 };
 

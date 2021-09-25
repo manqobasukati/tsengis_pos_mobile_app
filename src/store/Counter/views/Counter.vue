@@ -1,6 +1,8 @@
 <template>
-  <div class="tw-flex tw-flex-col tw-p-2  tw-items-center">
-    <div class="tw-flex-grow tw-w-full md:tw-w-1/2 ">
+  <div class="tw-flex tw-flex-col  tw-p-2  tw-items-center">
+    <div
+      class="tw-flex-grow tw-h-full tw-justify-between tw-w-full md:tw-w-1/2 "
+    >
       <div class="tw-text-3xl tw-text-black tw-font-bold">
         Counter items
       </div>
@@ -35,7 +37,9 @@
         </div>
       </div>
     </div>
-
+    <div class="tw-text-gray-500 tw-text-5xl tw-font-bold">
+      E{{ totalOfCounterItems }}
+    </div>
     <div
       class="tw-flex tw-flex-row tw-mt-2 tw-w-full md:tw-w-1/2  tw-space-x-1 "
     >

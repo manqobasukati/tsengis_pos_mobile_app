@@ -2,7 +2,7 @@ import { CounterItem } from '@/types/CounterItem.model';
 
 export interface CounterInterface {
   counterItems: CounterItem[];
-  totalOfCounterItems: any;
+  totalOfCounterItems: number;
   checkoutCounterItems: any;
   addItem: any;
 }
@@ -22,7 +22,7 @@ const state: CounterInterface = {
       _id: '0B',
     },
   ] as CounterItem[],
-  totalOfCounterItems: null as null | any,
+  totalOfCounterItems: 27.0,
   checkoutCounterItems: null as null | any,
   addItem: null as null | any,
 };
