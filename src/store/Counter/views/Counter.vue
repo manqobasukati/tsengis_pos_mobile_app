@@ -17,7 +17,7 @@
           </div>
           <div class="tw-flex tw-w-full tw-text-xs tw-justify-between">
             <div class="tw-bg-gray-200 tw-p-1 tw-font-semibold">
-              {{ item.catergory || 'consumables' }}
+              {{ item.category || 'consumables' }}
             </div>
             <div class="tw-bg-blue-200 tw-p-1 tw-font-semibold tw-px-2">
               {{ item.quantity }}
@@ -27,7 +27,11 @@
         <div
           class="tw-bg-red-100 tw-w-1/6  tw-flex tw-justify-center tw-items-center"
         >
-          <i class="material-icons tw-text-red-500">delete_outline</i>
+          <i
+            @click="removeCounterItem(item)"
+            class="material-icons tw-text-red-500"
+            >delete_outline</i
+          >
         </div>
       </div>
     </div>
@@ -68,6 +72,7 @@ import TopBar from '@/components/UIComponents/TopBar.vue';
 import AddCounterItem from './AddCounterItem.vue';
 
 import myDb from '@/core/PouchDBHandler';
+import { CounterItem } from '@/types/CounterItem.model';
 
 export default Vue.extend({
   name: 'Counter',
@@ -86,7 +91,6 @@ export default Vue.extend({
     ReceiveBarcodeValue(data: any) {
       const action = `${MODULES.COUNTER}/${COUNTER_ACTIONS.ADDITEM}`;
       myDb.getStoreItem(data).then((val: any) => {
-        console.log('Store Item', val);
         this.$store.dispatch(action, val);
         this.AddItemDialogActive = !this.AddItemDialogActive;
       });
@@ -96,6 +100,11 @@ export default Vue.extend({
     },
     navigateTo(path: string) {
       this.$router.push({ path: path });
+    },
+    removeCounterItem(counterItem: CounterItem) {
+      const action = `${MODULES.COUNTER}/${COUNTER_ACTIONS.REMOVE_ITEM}`;
+
+      this.$store.dispatch(action, counterItem);
     },
   },
   computed: {

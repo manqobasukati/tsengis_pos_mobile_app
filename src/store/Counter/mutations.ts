@@ -1,12 +1,14 @@
-import { MutationTree } from "vuex";
+import { CounterItem } from '@/types/CounterItem.model';
+import { MutationTree } from 'vuex';
 
-import { CounterInterface } from "./state";
+import { CounterInterface } from './state';
 
 export enum COUNTER_MUTATIONS {
-  COUNTERITEMS = "counterItems",
-  TOTALOFCOUNTERITEMS = "totalOfCounterItems",
-  CHECKOUTCOUNTERITEMS = "checkoutCounterItems",
-  ADDITEM = "addItem"
+  COUNTERITEMS = 'counterItems',
+  TOTALOFCOUNTERITEMS = 'totalOfCounterItems',
+  CHECKOUTCOUNTERITEMS = 'checkoutCounterItems',
+  ADDITEM = 'addItem',
+  REMOVE_ITEM = 'remove_items',
 }
 
 const mutations: MutationTree<CounterInterface> = {
@@ -21,7 +23,17 @@ const mutations: MutationTree<CounterInterface> = {
   },
   [COUNTER_MUTATIONS.ADDITEM](state: CounterInterface, payload) {
     state.counterItems.push(payload);
-  }
+  },
+  [COUNTER_MUTATIONS.REMOVE_ITEM](
+    state: CounterInterface,
+    payload: CounterItem
+  ) {
+    const itemIndex = (state.counterItems as CounterItem[]).findIndex(val => {
+      return val._id === payload._id;
+    });
+
+    state.counterItems.splice(itemIndex, 1);
+  },
 };
 
 export default mutations;
