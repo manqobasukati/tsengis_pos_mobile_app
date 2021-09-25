@@ -1,6 +1,6 @@
 <template>
   <div v-if="showSideMenu" class="tw-absolute  tw-flex tw-h-screen tw-w-screen">
-    <div class="tw-w-2/3 md:tw-w-1/3 tw-bg-black tw-h-full tw-flex-col">
+    <div class="tw-w-full md:tw-w-1/3 tw-bg-black tw-h-full tw-flex-col">
       <div class="tw-pt-8">
         <i class="material-icons tw-text-6xl tw-text-white">domain</i>
         <div class="tw-text-white tw-text-xl">Store name here</div>
@@ -27,7 +27,7 @@
     </div>
     <div
       @click="closeSideMenu"
-      class="tw-w-1/3  tw-bg-black tw-h-full tw-opacity-50 "
+      class="tw-w-full  tw-bg-black tw-h-full tw-opacity-50 "
     ></div>
   </div>
 </template>
